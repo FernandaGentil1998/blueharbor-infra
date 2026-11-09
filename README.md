@@ -14,10 +14,10 @@
 
 ### Hardware Information
 
-- **Laptop model:** To be confirmed
-- **CPU:** To be confirmed
-- **RAM:** To be confirmed
-- **Free disk space:** To be confirmed
+- **Laptop model:** Acer Swift SF14-61T
+- **CPU:** AMD Ryzen AI 9 365 with Radeon 880M Graphics
+- **RAM:** 32 GB
+- **Free disk space:** 656 GB of 952 GB
 
 ### Progress
 
