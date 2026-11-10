@@ -54,3 +54,50 @@ The report confirmed:
 ## 4. Result
 
 The domain password policy and automatic screen-lock inactivity setting were successfully configured and verified on DC01.
+
+//
+
+# Group Policy — BH-Users-Baseline
+
+## Objective
+Create and configure a baseline Group Policy Object (GPO) for domain users.
+
+## GPO Configuration
+
+| Property | Value |
+|---|---|
+| Name | BH-Users-Baseline |
+| GUID | `86abee0b-f883-487b-a087-f793f1568205` |
+| Domain | `blueharbor.internal` |
+| Linked OU | `OU=Users,OU=BlueHarbor,DC=blueharbor,DC=internal` |
+| Enforced | No |
+| Disabled | None |
+| Security Filtering | Authenticated Users |
+| Extensions Configured | Registry |
+| AD Revision | 3 |
+| SYSVOL Revision | 3 |
+
+## Registry Settings
+
+Configured under:
+
+`HKCU\Software\Policies\Microsoft\Windows\Control Panel\Desktop`
+
+| Value | Type | Data | Purpose |
+|---|---|---|---|
+| ScreenSaveActive | String | 1 | Enable screen saver |
+| ScreenSaverIsSecure | String | 1 | Require password on resume |
+| ScreenSaveTimeOut | String | 600 | Set timeout to 10 minutes |
+
+## Validation
+
+- Registry settings verified using `Get-GPRegistryValue`.
+- `gpupdate /force` completed successfully for Computer and User Policies.
+- GPO HTML report generated at `C:\Lab\evidence\gpo-users.html`.
+- Group Policy Modeling executed for user `elaurent`.
+- Modeling report confirmed `BH-Users-Baseline` under **Applied GPOs**.
+- User `elaurent` is located in the nested Finance OU, confirming the intended OU scope.
+
+## Result
+
+The baseline GPO was successfully created, linked, configured, and validated through Group Policy Modeling.
