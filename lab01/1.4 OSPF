@@ -1,0 +1,16 @@
+## OSPF Passive Interfaces
+
+The `passive-interface` command prevents OSPF Hello packets from being sent through a specified interface. As a result, the router does not establish OSPF neighbor adjacencies through that interface.
+
+However, the connected network is still advertised to other OSPF routers.
+
+In this lab, passive interfaces were configured on the LAN-facing interfaces:
+
+- **R-HQ:** G0/0.10, G0/0.20, G0/0.30 and G0/0.99.
+- **R-WH1:** G0/0.
+
+This is good practice because LAN interfaces connect end devices rather than other routers. Preventing OSPF neighbor formation on these interfaces reduces unnecessary routing traffic and helps prevent unauthorized devices from forming OSPF adjacencies.
+
+The WAN interface G0/1 remained active on both routers to allow the OSPF adjacency between R-HQ and R-WH1.
+
+**Result:** Both routers successfully established a FULL OSPF adjacency and exchanged their network routes.
