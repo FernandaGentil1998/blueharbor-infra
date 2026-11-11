@@ -1,0 +1,63 @@
+PC-U1 validation
+C:\>ping 10.10.20.10
+
+Pinging 10.10.20.10 with 32 bytes of data:
+
+Reply from 10.10.20.10: bytes=32 time=13ms TTL=127
+Reply from 10.10.20.10: bytes=32 time=12ms TTL=127
+Reply from 10.10.20.10: bytes=32 time=12ms TTL=127
+Reply from 10.10.20.10: bytes=32 time=12ms TTL=127
+
+Ping statistics for 10.10.20.10:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 12ms, Maximum = 13ms, Average = 12ms
+
+C:\>
+---
+
+BLUEHARBOR — LAB 01 — EXERCISE 1.3
+Evidence: Router-on-a-stick and DHCP
+Date: 2026-11-11
+
+=== 1. ROUTER INTERFACES ===
+
+Command:
+show ip interface brief
+
+Interface              IP-Address      Status    Protocol
+GigabitEthernet0/0     unassigned      up        up
+GigabitEthernet0/0.10  10.10.10.1      up        up
+GigabitEthernet0/0.20  10.10.20.1      up        up
+GigabitEthernet0/0.30  10.10.30.1      up        up
+GigabitEthernet0/0.99  10.10.99.1      up        up
+GigabitEthernet0/1     unassigned      up        up
+
+=== 2. DHCP BINDINGS ===
+
+Command:
+show ip dhcp binding
+
+IP address       Client-ID/Hardware address
+10.10.30.22      0040.0BB9.D0B4
+10.10.30.21      00E0.B00D.4A48
+10.10.10.21      0001.432C.8649
+
+=== 3. CONNECTIVITY TEST ===
+
+Source: PC-U1
+Destination: SRV-DC (10.10.20.10)
+Protocol: ICMP
+Packets sent: 4
+Packets received: 4
+Packets lost: 0 (0% loss)
+Average round trip time: 12 ms
+
+=== 4. STATUS ===
+
+Router-on-a-stick: Configured
+DHCP ADMIN: Verified
+DHCP USERS: Verified
+Inter-VLAN connectivity: Verified
+
+
