@@ -58,3 +58,83 @@ No monetary invoice amount was provided in the usage screen.
 - Supabase Free Plan overages are not billed; exceeding quotas may cause service restrictions.
 - Usage dashboards may have refresh delays.
 - These values are snapshots, not final monthly invoices.
+
+## 5. Usage Analysis and Monitoring
+
+### Current Usage Assessment
+
+The project is currently operating with low resource consumption.
+
+- GitHub Codespaces storage generated a gross amount below $0.01, with no billed amount displayed.
+- Vercel Hobby showed no measurable usage for the listed resources during the selected 30-day period.
+- Supabase Free showed no quota exceeded and no measurable consumption for the listed resources.
+
+These observations indicate that the current project workload is small and remains within the available free-tier limits.
+
+However, zero usage displayed in a dashboard does not necessarily mean that no requests were processed. The TrackIt application was successfully deployed and two shipment API requests were validated. Usage dashboards may have reporting delays, aggregation thresholds or different measurement periods.
+
+### Monitoring Strategy
+
+The following metrics should be monitored regularly:
+
+| Platform | Metric | Monitoring Objective |
+|---|---|---|
+| GitHub Codespaces | Storage usage | Avoid unnecessary storage costs |
+| GitHub Codespaces | Compute hours | Control development environment usage |
+| Vercel | Function Invocations | Track application request volume |
+| Vercel | Function Duration | Identify inefficient backend operations |
+| Vercel | Data Transfer | Monitor network consumption |
+| Supabase | Database Size | Prevent database quota exhaustion |
+| Supabase | Egress | Monitor data transferred from the database |
+| Supabase | Database Health | Identify performance or availability issues |
+| Supabase | API usage | Track application access patterns |
+
+### Recommended Monitoring Practices
+
+1. Review provider dashboards weekly.
+2. Check billing and usage before the end of each billing cycle.
+3. Configure alerts where supported.
+4. Investigate unexpected increases in database size or data transfer.
+5. Remove unused resources and deployments when appropriate.
+6. Review application logs to identify errors and excessive API requests.
+7. Keep credentials and billing information out of Git repositories.
+
+## 6. Scalability Scenario — 100x Traffic Growth
+
+Assume that TrackIt experiences a 100-fold increase in traffic compared with its current workload.
+
+Potential impacts include:
+
+- More Vercel Function Invocations.
+- Increased function execution duration and compute consumption.
+- Higher database query volume.
+- Increased Supabase egress and connection usage.
+- Potential database performance bottlenecks.
+- Increased risk of reaching free-tier quotas.
+
+### Scalability Recommendations
+
+| Component | Recommended Action |
+|---|---|
+| Vercel | Monitor function usage and consider a paid plan if limits are reached |
+| Flask application | Optimize database queries and implement appropriate caching |
+| Supabase | Monitor database performance, connections and egress |
+| PostgreSQL | Add indexes to frequently queried columns when justified |
+| Application architecture | Consider connection pooling and request optimization |
+| Monitoring | Configure usage alerts and review trends regularly |
+
+A reliable monetary estimate cannot be calculated from the current dashboard snapshot because the measured usage is zero or below the reporting threshold. A realistic forecast requires a defined request volume, workload profile and resource consumption baseline.
+
+## 7. Conclusion
+
+The current BlueHarbor TrackIt deployment operates within the free-tier limits displayed by GitHub Codespaces, Vercel and Supabase.
+
+The application successfully retrieves shipment records from the managed Supabase database through its Vercel deployment.
+
+The next step for production readiness is continuous monitoring of resource consumption, performance, availability and billing.
+
+The 100x growth scenario highlights the importance of monitoring, query optimization, caching and capacity planning before increasing infrastructure resources.
+
+---
+
+**Exercise 6.6 — Usage tracking and scalability assessment: documented.**
