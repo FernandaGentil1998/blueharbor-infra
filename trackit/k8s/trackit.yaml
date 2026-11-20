@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trackit
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: trackit
+  template:
+    metadata:
+      labels:
+        app: trackit
+    spec:
+      containers:
+        - name: trackit
+          image: trackit:1.1.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 5000
+          env:
+            - name: APP_VERSION
+              value: "1.1.0"
+            - name: REDIS_HOST
+              value: cache
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trackit
+spec:
+  type: ClusterIP
+  selector:
+    app: trackit
+  ports:
+    - port: 5000
+      targetPort: 5000
