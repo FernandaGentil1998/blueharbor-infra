@@ -1,0 +1,21 @@
+services:
+  web:
+    build: .
+    image: trackit:1.1.0
+    environment:
+      APP_VERSION: "1.1.0"
+      REDIS_HOST: cache
+    ports:
+      - "5000:5000"
+    depends_on:
+      - cache
+    restart: unless-stopped
+
+  cache:
+    image: redis:7-alpine
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  redis-data:
