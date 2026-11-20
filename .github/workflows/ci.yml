@@ -1,1 +1,51 @@
 
+name: ci
+
+on:
+  push:
+    branches: [main]
+    paths: ["trackit/**", ".github/workflows/ci.yml"]
+  pull_request:
+    paths: ["trackit/**"]
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: trackit
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt pytest
+      - run: pytest -q
+
+  build:
+    needs: test
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: trackit
+          push: true
+          tags: |
+            ghcr.io/fernandagentil1998/trackit:${{ github.sha }}
+            ghcr.io/fernandagentil1998/trackit:latest
+
