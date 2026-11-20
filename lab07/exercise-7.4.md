@@ -109,22 +109,12 @@ Displays disk utilization for the root (`/`) and boot (`/boot`) filesystems on b
 
 A Grafana alert rule named **High CPU Usage - WEB02** was created.
 
-The rule monitors CPU utilization on WEB02 using:
+The CPU alert rule was successfully validated using `stress-ng` on WEB02.
 
-```promql
-100 * (
-  1 - avg by (instance) (
-    rate(node_cpu_seconds_total{mode="idle", instance="10.10.20.21:9100"}[5m])
-  )
-)
-```
+A sustained CPU load test was performed using:
 
-Alert condition:
-- Threshold: CPU usage above 80%
-- Pending period: 2 minutes
-- Evaluation interval: 1 minute
-
-A CPU load test was attempted on WEB02 using `stress-ng`. The alert state changed during testing, but the evaluation subsequently displayed `No data`. Therefore, the alert trigger has not yet been conclusively validated and requires further investigation.
+```bash
+stress-ng --cpu 2 --cpu-load 90 --timeout 480s --metrics-brief
 
 ## 6. Current Status
 
@@ -135,12 +125,16 @@ A CPU load test was attempted on WEB02 using `stress-ng`. The alert state change
 | Prometheus targets | 3/3 UP |
 | Grafana installation | Completed |
 | Prometheus data source in Grafana | Connected |
-| Infrastructure dashboard | Created |
-| CPU alert rule | Created |
-| CPU stress test and alert validation | Pending investigation |
+| Infrastructure monitoring dashboard | Completed |
+| CPU alert rule | Validated |
+| CPU stress test and alert validation | Successful |
 
 ## 7. Conclusion
 
-Prometheus and Grafana were successfully deployed on WEB01 to monitor both BlueHarbor web servers. CPU, memory and disk metrics are available through the monitoring dashboard.
+Prometheus and Grafana were successfully deployed on WEB01 to monitor both BlueHarbor web servers.
 
-The CPU alert rule has been configured, but its behavior under sustained CPU load still needs to be validated. This will be addressed during the next troubleshooting session.
+The monitoring dashboard provides CPU, memory and disk utilization metrics collected through Node Exporter.
+
+The CPU alert rule was successfully tested under sustained load on WEB02. Grafana transitioned to the Alerting state when CPU utilization exceeded the configured 80% threshold and returned to Normal after the load decreased.
+
+The exercise demonstrates infrastructure monitoring, metric collection, dashboard visualization and threshold-based alerting.
