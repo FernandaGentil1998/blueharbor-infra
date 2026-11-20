@@ -1,4 +1,4 @@
-# Exercise 9.2 — Compose a Multi-Container Stack
+# Exercise 9.2 — Compose a Multi-Container Stack 
 
 ## Objective
 
