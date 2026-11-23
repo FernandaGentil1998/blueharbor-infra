@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: trackit
+  namespace: trackit
 spec:
   replicas: 2
   selector:
@@ -12,10 +13,17 @@ spec:
       labels:
         app: trackit
     spec:
+      automountServiceAccountToken: false
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        seccompProfile:
+          type: RuntimeDefault
       containers:
         - name: trackit
-          image: trackit:1.1.0
-          imagePullPolicy: Never
+          image: trackit@sha256:8945c9000ef5ce7b7de367b274d94b56a56c47439fe021f600775bfa68b8b5b7
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 5000
           env:
@@ -23,6 +31,19 @@ spec:
               value: "1.1.0"
             - name: REDIS_HOST
               value: cache
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
           livenessProbe:
             httpGet:
               path: /health
@@ -40,6 +61,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: trackit
+  namespace: trackit
 spec:
   type: ClusterIP
   selector:
