@@ -115,6 +115,7 @@ A sustained CPU load test was performed using:
 
 ```bash
 stress-ng --cpu 2 --cpu-load 90 --timeout 480s --metrics-brief
+```
 
 ## 6. Current Status
 

@@ -1,8 +1,8 @@
-\## Step 1 — On-premises
+## Step 1 — On-premises
 
 
 
-\### 1. The six layers of BlueHarbor's on-premises infrastructure
+### 1. The six layers of BlueHarbor's on-premises infrastructure
 
 
 
@@ -24,31 +24,31 @@
 
 
 
-\*\*Note:\*\* The case does not identify specific facilities or network providers. The contractor is documented as the original installer of the domain controller, not necessarily its current operator.
+**Note:** The case does not identify specific facilities or network providers. The contractor is documented as the original installer of the domain controller, not necessarily its current operator.
 
 
 
 
 
-\### 2.
+### 2.
 
-&#x20;\*\*Advantage:\*\* BlueHarbor has full control over its infrastructure, including hardware, network configuration, security policies and data management. This allows the company to customise the environment to its business requirements.
-
-
-
-&#x20;  \*\*Drawback:\*\* BlueHarbor is responsible for all costs and maintenance, including hardware purchases, electricity, cooling, upgrades, backups and technical staff. This can be expensive and requires specialised expertise.
+ **Advantage:** BlueHarbor has full control over its infrastructure, including hardware, network configuration, security policies and data management. This allows the company to customise the environment to its business requirements.
 
 
 
-\## Step 2 — Virtualisation
+   **Drawback:** BlueHarbor is responsible for all costs and maintenance, including hardware purchases, electricity, cooling, upgrades, backups and technical staff. This can be expensive and requires specialised expertise.
 
 
 
-\### 1. Total CPU cores and RAM used
+## Step 2 — Virtualisation
 
 
 
-\*\*CPU calculation:\*\*
+### 1. Total CPU cores and RAM used
+
+
+
+**CPU calculation:**
 
 
 
@@ -56,37 +56,37 @@ Each physical server has 8 CPU cores.
 
 
 
-\- Directory: 8 × 8% = 0.64 cores
+- Directory: 8 × 8% = 0.64 cores
 
-\- Files: 8 × 15% = 1.20 cores
+- Files: 8 × 15% = 1.20 cores
 
-\- Finance: 8 × 20% = 1.60 cores
+- Finance: 8 × 20% = 1.60 cores
 
-\- Print: 8 × 5% = 0.40 cores
+- Print: 8 × 5% = 0.40 cores
 
-\- Web: 8 × 10% = 0.80 cores
+- Web: 8 × 10% = 0.80 cores
 
-\- Backup: 8 × 12% = 0.96 cores
-
-
-
-\*\*Total CPU usage: 5.60 cores\*\*
+- Backup: 8 × 12% = 0.96 cores
 
 
 
-\*\*RAM calculation:\*\*
+**Total CPU usage: 5.60 cores**
 
 
 
-6 + 10 + 14 + 3 + 6 + 8 = \*\*47 GB\*\*
+**RAM calculation:**
 
 
 
-\*\*Total RAM used: 47 GB\*\*
+6 + 10 + 14 + 3 + 6 + 8 = **47 GB**
 
 
 
-\### 2. Virtualisation host capacity
+**Total RAM used: 47 GB**
+
+
+
+### 2. Virtualisation host capacity
 
 
 
@@ -94,9 +94,9 @@ Each host provides 16 CPU cores and 128 GB RAM. With a maximum utilisation of 70
 
 
 
-\- Usable CPU per host: 16 × 70% = 11.2 cores.
+- Usable CPU per host: 16 × 70% = 11.2 cores.
 
-\- Usable RAM per host: 128 × 70% = 89.6 GB.
+- Usable RAM per host: 128 × 70% = 89.6 GB.
 
 
 
@@ -104,41 +104,41 @@ BlueHarbor requires 5.6 CPU cores and 47 GB RAM.
 
 
 
-\*\*One host is sufficient for capacity\*\*, since both requirements are below the 70% limits.
+**One host is sufficient for capacity**, since both requirements are below the 70% limits.
 
 
 
-However, I would buy \*\*two hosts\*\* to provide redundancy, allow maintenance without stopping all services, and improve availability if one host fails.
+However, I would buy **two hosts** to provide redundancy, allow maintenance without stopping all services, and improve availability if one host fails.
 
 
 
-\### 3. Benefits and risk of server consolidation
+### 3. Benefits and risk of server consolidation
 
 
 
-\*\*Benefits:\*\*
+**Benefits:**
 
-1\. Lower hardware and electricity costs because multiple virtual machines share the same physical host.
+1. Lower hardware and electricity costs because multiple virtual machines share the same physical host.
 
-2\. Easier administration, resource allocation and backup management through a centralised virtualisation platform.
-
-
-
-\*\*Risk:\*\*
-
-\- A single host failure could affect all six virtual machines, causing multiple services to become unavailable simultaneously.
+2. Easier administration, resource allocation and backup management through a centralised virtualisation platform.
 
 
 
-\## Step 3 — Hypervisor type
+**Risk:**
+
+- A single host failure could affect all six virtual machines, causing multiple services to become unavailable simultaneously.
 
 
 
-\### 1. Choosing the hypervisor type
+## Step 3 — Hypervisor type
 
 
 
-\*\*a) Future production hosts in BlueHarbor's server room: Type 1\*\*
+### 1. Choosing the hypervisor type
+
+
+
+**a) Future production hosts in BlueHarbor's server room: Type 1**
 
 
 
@@ -146,7 +146,7 @@ A Type 1 hypervisor runs directly on physical hardware without requiring a gener
 
 
 
-\*\*b) My laptop for this course: Type 2\*\*
+**b) My laptop for this course: Type 2**
 
 
 
@@ -154,7 +154,7 @@ A Type 2 hypervisor runs as an application on an existing operating system. Virt
 
 
 
-\*\*c) An accountant's laptop running an old Windows application: Type 2\*\*
+**c) An accountant's laptop running an old Windows application: Type 2**
 
 
 
@@ -162,21 +162,21 @@ A Type 2 hypervisor can run a virtual machine with a compatible older version of
 
 
 
-\## Step 4 — From on-premises to cloud
+## Step 4 — From on-premises to cloud
 
 
 
-\### 1. From a virtualised data centre to cloud
+### 1. From a virtualised data centre to cloud
 
 
 
-\*\*What BlueHarbor still lacks to become a private cloud:\*\*
+**What BlueHarbor still lacks to become a private cloud:**
 
 
 
-\- Self-service: users or administrators should be able to request and provision resources when needed.
+- Self-service: users or administrators should be able to request and provision resources when needed.
 
-\- Automation: infrastructure provisioning and management should be automated instead of relying on manual operations.
+- Automation: infrastructure provisioning and management should be automated instead of relying on manual operations.
 
 
 
@@ -184,25 +184,25 @@ Virtualisation alone does not make an infrastructure a private cloud.
 
 
 
-\*\*What BlueHarbor would gain from a public cloud:\*\*
+**What BlueHarbor would gain from a public cloud:**
 
 
 
-\- Access to shared infrastructure operated and maintained by a cloud provider.
+- Access to shared infrastructure operated and maintained by a cloud provider.
 
-\- On-demand resources that can be provisioned when needed.
+- On-demand resources that can be provisioned when needed.
 
-\- Pay-per-use pricing instead of purchasing and maintaining all physical hardware.
+- Pay-per-use pricing instead of purchasing and maintaining all physical hardware.
 
-\- Greater flexibility to scale resources according to demand.
-
-
-
-\## Step 5 — Deployment model
+- Greater flexibility to scale resources according to demand.
 
 
 
-\### 1. Workload placement
+## Step 5 — Deployment model
+
+
+
+### 1. Workload placement
 
 
 
@@ -222,7 +222,7 @@ Virtualisation alone does not make an infrastructure a private cloud.
 
 
 
-\### 2. Why the resulting model is hybrid
+### 2. Why the resulting model is hybrid
 
 
 
@@ -234,11 +234,11 @@ The two environments must be securely connected through a VPN or another protect
 
 
 
-\## Step 6 — Scalability
+## Step 6 — Scalability
 
 
 
-\### 1. Vertical scaling vs. horizontal scaling
+### 1. Vertical scaling vs. horizontal scaling
 
 
 
@@ -264,11 +264,11 @@ Vertical scaling increases the resources of one machine. Horizontal scaling adds
 
 
 
-\### 2. Scaling strategy for the web tier and database
+### 2. Scaling strategy for the web tier and database
 
 
 
-\*\*Web tier: Horizontal scaling.\*\*
+**Web tier: Horizontal scaling.**
 
 
 
@@ -276,7 +276,7 @@ I would choose horizontal scaling for the TrackIt web tier because it distribute
 
 
 
-\*\*Database: Vertical scaling.\*\*
+**Database: Vertical scaling.**
 
 
 
@@ -284,4 +284,4 @@ I would initially choose vertical scaling for the database because it increases 
 
 
 
-Database performance should be monitored, and further scaling options can be considered if vertical scaling is no longer sufficient.</
+Database performance should be monitored, and further scaling options can be considered if vertical scaling is no longer sufficient.

@@ -70,5 +70,5 @@ The internal network was successfully configured on both VMs. Connectivity betwe
 
 
 
-The NAT Network tests for Internet access and VM-to-VM connectivity were not recorded and remain to be verified.
+Internet connectivity, DNS resolution, and WEB01-to-WEB02 communication over the NAT Network were successful. Direct access from the Windows host to WEB01 was unsuccessful, while SSH access through localhost:2220 port forwarding was successful.
 

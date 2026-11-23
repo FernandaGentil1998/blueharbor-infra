@@ -1,0 +1,17 @@
+System clock:
+Mon Nov 23 03:23:24 PM UTC 2026
+
+2026-11-23T15:04:19.433125+00:00 web01 sshd[214437]: Connection closed by 10.10.20.21 port 59446
+2026-11-23T15:13:42.596566+00:00 web01 sshd[214566]: Invalid user testuser from 10.10.20.20 port 32934
+2026-11-23T15:13:42.637496+00:00 web01 sshd[214566]: Connection closed by invalid user testuser 10.10.20.20 port 32934 [preauth]
+2026-11-23T15:15:17.139212+00:00 web01 sshd[214802]: Connection closed by 10.10.20.21 port 46174 [preauth]
+2026-11-23T15:15:29.431491+00:00 web01 sshd[214805]: Invalid user testuser from 10.10.20.21 port 59558
+2026-11-23T15:15:29.442952+00:00 web01 sshd[214805]: Connection closed by invalid user testuser 10.10.20.21 port 59558 [preauth]
+2026-11-23T15:16:26.841687+00:00 web01 sshd[214818]: Invalid user testuser from 10.10.20.21 port 44448
+2026-11-23T15:16:26.849302+00:00 web01 sshd[214818]: Connection closed by invalid user testuser 10.10.20.21 port 44448 [preauth]
+2026-11-23T15:16:27.156258+00:00 web01 sshd[214820]: Invalid user testuser from 10.10.20.21 port 44452
+2026-11-23T15:16:27.164511+00:00 web01 sshd[214820]: Connection closed by invalid user testuser 10.10.20.21 port 44452 [preauth]
+2026-11-23T15:16:27.459310+00:00 web01 sshd[214822]: Invalid user testuser from 10.10.20.21 port 44468
+2026-11-23T15:16:27.470770+00:00 web01 sshd[214822]: Connection closed by invalid user testuser 10.10.20.21 port 44468 [preauth]
+2026-11-23T15:16:27.763187+00:00 web01 sshd[214824]: Invalid user testuser from 10.10.20.21 port 44472
+2026-11-23T15:16:27.774386+00:00 web01 sshd[214824]: Connection closed by invalid user testuser 10.10.20.21 port 44472 [preauth]

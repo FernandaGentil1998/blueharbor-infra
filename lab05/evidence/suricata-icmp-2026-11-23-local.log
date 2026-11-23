@@ -1,0 +1,7 @@
+Source: WEB01 /var/log/suricata/fast.log
+Timezone: Europe/Paris (CET, UTC+1)
+
+11/23/2026-16:04:04.626706  [**] [1:10000001:1] BLUEHARBOR ICMP TEST [**] [Classification: (null)] [Priority: 3] {ICMP} 10.10.20.21:8 -> 10.10.20.20:0
+11/23/2026-16:04:05.619865  [**] [1:10000001:1] BLUEHARBOR ICMP TEST [**] [Classification: (null)] [Priority: 3] {ICMP} 10.10.20.21:8 -> 10.10.20.20:0
+11/23/2026-16:04:06.610675  [**] [1:10000001:1] BLUEHARBOR ICMP TEST [**] [Classification: (null)] [Priority: 3] {ICMP} 10.10.20.21:8 -> 10.10.20.20:0
+11/23/2026-16:04:07.632481  [**] [1:10000001:1] BLUEHARBOR ICMP TEST [**] [Classification: (null)] [Priority: 3] {ICMP} 10.10.20.21:8 -> 10.10.20.20:0

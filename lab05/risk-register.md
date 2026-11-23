@@ -1,8 +1,8 @@
-\# Lab 05 — Infrastructure Security
+# Lab 05 — Infrastructure Security
 
 
 
-\## 1. Asset Inventory
+## 1. Asset Inventory
 
 
 
@@ -26,11 +26,11 @@
 
 
 
-\*\*Scoring:\*\* 1 = Low, 2 = Medium, 3 = High.
+**Scoring:** 1 = Low, 2 = Medium, 3 = High.
 
 
 
-\## 2. Risk Register
+## 2. Risk Register
 
 
 
@@ -50,7 +50,7 @@
 
 
 
-\## 3. Risk Assessment Method
+## 3. Risk Assessment Method
 
 
 
@@ -58,13 +58,8 @@ Risk Score = Likelihood × Impact
 
 
 
-\- Likelihood: 1 (Rare) to 4 (Almost Certain).
+- Likelihood: 1 (Rare) to 4 (Almost Certain).
 
-\- Impact: 1 (Low) to 4 (Critical).
+- Impact: 1 (Low) to 4 (Critical).
 
-\- Higher scores indicate higher-priority risks.
-
-
-
-
-
+- Higher scores indicate higher-priority risks.
