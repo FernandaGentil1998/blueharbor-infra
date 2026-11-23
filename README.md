@@ -1,6 +1,10 @@
 # blueharbor-infra
 # BlueHarbor Cloud Computing Lab
 
+BlueHarbor is a hands-on Cloud Computing and DevOps project developed to build practical experience in designing, deploying, securing, and managing IT infrastructure. The project uses a virtualized environment with Windows and Linux servers to explore enterprise infrastructure concepts, including network architecture, virtualization, system administration, Active Directory, resource management, and infrastructure automation.
+
+Throughout the project, 11 labs (Lab 00–Lab 10) were completed, covering network segmentation and routing, Linux hardening, Windows Server administration, cloud platforms and managed services, Infrastructure as Code, Ansible automation, monitoring, centralized logging, enterprise storage, backup and disaster recovery, Docker, Kubernetes, CI/CD, and cybersecurity governance. The project also includes practical security assessments, IAM and access control configurations, cloud cost analysis, and compliance mapping against ISO/IEC 27017 and ISO/IEC 27018, with technical documentation and evidence maintained throughout the implementation.
+
 ## Lab Journal
 
 ### Entry 01 – Environment Setup

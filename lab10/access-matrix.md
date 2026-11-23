@@ -7,8 +7,8 @@
 | Ops | GitHub | Maintain | `bh-runbooks` repository | `ops` team membership with Maintain permission | Remove user from team or revoke repository access |
 | Ops | Supabase | INSERT and UPDATE | `public.shipments` | `app_metadata.role = ops`, RLS policies, and SQL GRANT | Remove the role, drop policies, or revoke SQL privileges |
 | Auditor | GitHub | Read | `bh-runbooks` repository | `auditors` team membership with Read permission | Remove user from team or revoke repository access |
-| CI pipeline | GitHub Actions | Not configured in this lab | No additional access granted | No dedicated pipeline permission configured | Revoke or rotate any future workflow credentials |
-| Terraform | Cloud infrastructure | Not configured in this lab | No additional access granted | No dedicated Terraform identity configured | Revoke or rotate its future credentials |
+| CI pipeline | GitHub Actions | Workflow configured; dedicated least-privilege identity not separately documented | TrackIt tests and GHCR image publishing | GitHub Actions workflow permissions | Review workflow permissions and revoke or rotate credentials |
+| Terraform | Cloud infrastructure | No dedicated Terraform identity configured | No additional access granted | No Terraform credentials or service identity provisioned | Review and revoke any future credentials or permissions |
 
 ## Verification
 

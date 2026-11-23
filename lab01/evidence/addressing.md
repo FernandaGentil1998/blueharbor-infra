@@ -15,7 +15,7 @@
 
 | Device | Interface | VLAN | IP Address | Subnet Mask | Gateway |
 |---|---|---|---|---|---|
-| R-HQ | G0/0 | Trunk | TBD | TBD | N/A |
+| R-HQ | G0/0 | Trunk (802.1Q) | No IP | N/A | N/A |
 | R-HQ | G0/1 | WAN | 10.255.0.1 | 255.255.255.252 | N/A |
 | R-WH1 | G0/1 | WAN | 10.255.0.2 | 255.255.255.252 | N/A |
 | R-WH1 | G0/0 | WH1 LAN | 10.20.40.1 | 255.255.255.0 | N/A |
