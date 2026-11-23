@@ -4,7 +4,7 @@ name: ci
 on:
   push:
     branches: [main]
-    paths: ["trackit/**", ".github/workflows/ci.yml"]
+    paths: ["trackit/**", "cloud/**", ".github/workflows/ci.yml"]
   pull_request:
 
 permissions:
@@ -27,8 +27,28 @@ jobs:
       - run: pip install -r requirements.txt pytest
       - run: pytest -q
 
+  policy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install checkov
+
+      - name: Scan Terraform
+        run: checkov -d cloud --framework terraform --compact
+
+      - name: Scan Dockerfile
+        run: checkov -f trackit/Dockerfile --framework dockerfile --compact
+
+      - name: Scan Kubernetes
+        run: checkov -d trackit/k8s --framework kubernetes --compact
+
   build:
-    needs: test
+    needs: [test, policy]
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
@@ -47,4 +67,3 @@ jobs:
           tags: |
             ghcr.io/fernandagentil1998/trackit:${{ github.sha }}
             ghcr.io/fernandagentil1998/trackit:latest
-

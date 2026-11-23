@@ -16,4 +16,6 @@ USER appuser
 
 EXPOSE 5000
 
+HEALTHCHECK CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"
+
 CMD ["gunicorn", "--bind", "0.0.0.0:5000", "app:app"]
