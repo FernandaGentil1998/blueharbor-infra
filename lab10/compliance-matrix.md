@@ -158,3 +158,40 @@ The project also identifies limitations in secrets lifecycle management, log pro
 The ISO/IEC 27017 and ISO/IEC 27018 mappings are intended to demonstrate understanding of relevant cloud-security and privacy themes. They do not establish certification or full conformity with either standard.
 
 The D10 learning outcomes are documented through implementation evidence and explicit gap analysis.
+
+## 11. NIST CSF 2.0 and ISO/IEC 27001:2022 Annex A Mapping
+
+This table maps selected security controls to NIST CSF 2.0 and ISO/IEC 27001:2022 Annex A. The mapping is educational and does not constitute a formal compliance assessment.
+
+| # | Security control | NIST CSF 2.0 | ISO/IEC 27001:2022 Annex A | BlueHarbor evidence | Status |
+|---|---|---|---|---|---|
+| 1 | Security roles and responsibilities | GV.RR | A.5.2 | `lab10/access-matrix.md`; `lab06/service-models.md` | Partially implemented |
+| 2 | Risk assessment and treatment | GV.RM; ID.RA | A.5.4; A.5.7 | `lab05/risk-register.md`; `lab05/incident-report.md` | Implemented in documented scope |
+| 3 | Asset and service inventory | ID.AM | A.5.9; A.5.12 | `lab04/resources.md`; `lab06/providers.md` | Partially implemented |
+| 4 | Identity and access management | PR.AA | A.5.15; A.5.16; A.5.18 | `lab10/access-matrix.md`; `lab06/supabase.md` | Implemented in documented scope |
+| 5 | Authentication and privileged access | PR.AA | A.5.17; A.8.2; A.8.5 | `lab10/access-matrix.md`; `lab05/segmentation.md` | Partially implemented |
+| 6 | Network security and segmentation | PR.IR | A.8.20; A.8.21; A.8.22 | `lab05/segmentation.md`; `lab05/exposure.md` | Implemented in lab infrastructure |
+| 7 | Secure configuration and hardening | PR.PS | A.8.9; A.8.32 | `lab03/hardening.md`; `lab10/security-controls.md` | Implemented in documented scope |
+| 8 | Data protection and backup | PR.DS | A.8.10; A.8.13; A.8.24 | `lab08/exercise-8.5.md`; `lab10/security-controls.md` | Partially implemented |
+| 9 | Logging and monitoring | DE.CM; DE.AE | A.8.15; A.8.16 | `lab07/logging.md`; `lab05/incident-report.md` | Partially implemented |
+| 10 | Vulnerability and security testing | ID.RA; DE.CM | A.8.8; A.8.29 | `.github/workflows/ci.yml`; Checkov scans | Partially implemented |
+| 11 | Incident response and communication | RS.MA; RS.AN; RS.CO | A.5.24; A.5.25; A.5.26 | `lab05/incident-report.md` | Documented |
+| 12 | Recovery and continuity | RC.RP; RC.CO | A.5.29; A.5.30; A.8.13 | `lab08/exercise-8.5.md`; backup and restore evidence | Partially implemented |
+
+The status describes the evidence available in this educational repository. A mapped control does not imply full implementation or certification. Control applicability and exact mapping should be validated against the organisation's scope and Statement of Applicability.
+
+## 12. Terraform Validation and Checkov Scan Evidence
+
+Validation and security scanning are separate activities and their results must not be interpreted interchangeably.
+
+| Scope | Tool | Result | Interpretation |
+|---|---|---|---|
+| `cloud/lab-infra` | Terraform init and validate | Successful | Configuration initialized and validated |
+| `cloud/platform` | Terraform init and validate | Successful | Configuration initialized and validated |
+| `trackit/Dockerfile` | Checkov 3.4.7 | 31 passed, 0 failed, 0 skipped | Dockerfile security checks completed |
+| `trackit/k8s` | Checkov 3.4.7 | 180 passed, 0 failed, 0 skipped | Kubernetes security checks completed |
+| `cloud/` | Checkov 3.4.6 | 0 resources, 0 passed, 0 failed, 0 skipped, 0 parsing errors | No Terraform resources were evaluated |
+
+The Terraform Checkov result is a coverage limitation, not evidence that the Terraform resources passed security checks. The Docker and Vercel providers contain resources that were not recognized by the tested Checkov configuration.
+
+Terraform initialization and validation confirm configuration validity but do not replace security policy checks. The GitHub Actions workflow therefore includes explicit Terraform initialization and validation for both directories. Its execution must be confirmed after this workflow change is pushed.
